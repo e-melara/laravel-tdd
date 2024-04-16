@@ -2,17 +2,20 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+use App\Models\User;
 
 class CreateStatusTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**  @test */
+    #[Test]
     public function a_user_can_create_statues(): void
     {
+        $this->withoutExceptionHandling();
         $user = User::factory()->create();
         $this->actingAs($user);
 
